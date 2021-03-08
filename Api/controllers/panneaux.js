@@ -1,7 +1,9 @@
+const Panneaux = require('../models/panneaux')
 
-
-exports.createPanneaux = (req, res) => {
-    res.send("create panneaux")
+exports.createPanneaux = async (req, res) => {
+    const panneaux = await Panneaux.create(req.body)
+    // console.log(req.body)
+    res.status(201).json(panneaux)
 }
 
 exports.getAllPanneaux = (req, res) => {
